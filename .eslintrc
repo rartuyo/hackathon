@@ -62,7 +62,6 @@
           "error",
           { "argsIgnorePattern": "^_" }
         ],
-        "func-style": ["error", "declaration"],
         "func-names": "off"
       }
     }
