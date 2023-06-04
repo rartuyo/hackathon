@@ -1,4 +1,5 @@
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Fragment } from "react";
 
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
@@ -7,8 +8,10 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import React, { useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import AddEvent from "./AddEvent";
 
 import events from "../events";
+import { useActivityRate } from "@/hooks/use-activity-rate";
 
 const locales = {
   "en-US": enUS,
@@ -24,11 +27,14 @@ const localizer = dateFnsLocalizer({
 
 export default function MyCalendar() {
   const [eventsData, setEventsData] = useState(events);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const { getConsumptionRate } = useActivityRate();
 
   const handleSelect = ({ start, end }) => {
-    console.log(start);
-    console.log(end);
     const title = window.prompt("New Event name");
+
+    getConsumptionRate(title);
+
     if (title)
       setEventsData([
         ...eventsData,
@@ -41,18 +47,25 @@ export default function MyCalendar() {
   };
 
   return (
-    <div className="App">
+    <div className="flex min-h-screen justify-between bg-white p-12">
       <Calendar
-        views={["day", "agenda", "work_week", "month"]}
+        views={["week"]}
         selectable
         localizer={localizer}
         defaultDate={new Date()}
-        defaultView="month"
+        defaultView="week"
         events={eventsData}
-        style={{ height: "100vh" }}
-        onSelectEvent={(event) => alert(event.title)}
+        style={{ height: "100vh", width: "100%", color: "black" }}
+        onSelectEvent={(event) => {
+          setSelectedEvent(event);
+        }}
         onSelectSlot={handleSelect}
       />
+      {typeof selectedEvent !== "undefined" && selectedEvent && (
+        <div className="ml-12">
+          <AddEvent eventInfo={selectedEvent} />
+        </div>
+      )}
     </div>
   );
 }

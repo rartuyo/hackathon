@@ -11,3 +11,18 @@ const completion = await openai.createChatCompletion({
 });
 
 console.log(completion.data.choices[0].message);
+
+function calculateTotalAmount(startTime, endTime) {
+  const totalAmount = data.reduce((sum, entry) => {
+    const entryStartTime = new Date(entry.valid_from);
+    const entryEndTime = new Date(entry.valid_to);
+
+    if (entryStartTime >= startTime && entryEndTime <= endTime) {
+      return sum + entry.value;
+    }
+
+    return sum;
+  }, 0);
+
+  return totalAmount;
+}
