@@ -13,6 +13,7 @@ import events from "../events";
 import useCalculateamount from "@/hooks/use-calculate-amount";
 import AddEventModal from "@/components/AddEventModal";
 import useSuggestedTime from "@/hooks/use-suggested-time";
+import useSuggestedActivity from "@/hooks/use-suggested-activity";
 import useCalculateAmount from "@/hooks/use-calculate-amount";
 
 const locales = {
@@ -40,7 +41,9 @@ export default function MyCalendar() {
   const [eventInfo, setEventInfo] = useState();
   const { calculate, amount } = useCalculateAmount();
   const [suggestedBlocks, setSuggestedBlocks] = useState();
+  const [suggestedActivty, setSuggestedActivity] = useState()
   const { getSuggestions } = useSuggestedTime();
+  const {getSuggestedActivity} = useSuggestedActivity()
 
   const bookHandler = (eventTitle: string) => {
     if (amount && eventInfo) {
@@ -93,6 +96,7 @@ export default function MyCalendar() {
         onSelectEvent={(event) => {
           setSelectedEvent(event);
           setSuggestedBlocks(getSuggestions(event.start, event.end));
+          setSuggestedActivity(getSuggestedActivity(event.title));
         }}
         onSelectSlot={handleSelect}
       />
@@ -101,6 +105,7 @@ export default function MyCalendar() {
           <EventInfo
             eventInfo={selectedEvent}
             suggestedBlocks={suggestedBlocks}
+            suggestedActivity={suggestedActivty}
           />
         </div>
       )}
