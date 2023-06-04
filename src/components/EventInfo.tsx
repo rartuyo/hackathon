@@ -7,9 +7,11 @@ type Event = {
 export default function EventInfo({
   eventInfo,
   suggestedBlocks,
+  suggestedActivity
 }: {
   eventInfo: Event;
   suggestedBlocks: Array<any>;
+  suggestedActivity: string;
 }) {
   console.log(suggestedBlocks);
 
@@ -38,6 +40,12 @@ export default function EventInfo({
                 </button>
               </div>
             ))}
+        </div>
+      </div>
+      <div className="mt-4">
+        <div className="text-xs font-bold"> Suggested Activities:</div>
+        <div>
+          {suggestedActivity}
         </div>
       </div>
     </div>
