@@ -75,10 +75,16 @@ export default function MyCalendar() {
   };
 
   const updateEventHandler = (newStartTime, newEndTime, newAmount) => {
+    const today = format(new Date(selectedEvent.start), "yyyy-MM-dd");
+    const toTodayStartTime = format(new Date(newStartTime), "HH:mm");
+    const toTodayEndTime = format(new Date(newEndTime), "HH:mm");
+    const newStart = new Date(`${today} ${toTodayStartTime}`);
+    const newEnd = new Date(`${today} ${toTodayEndTime}`);
+
     setSelectedEvent({
       ...selectedEvent,
-      start: newStartTime,
-      end: newEndTime,
+      start: newStart,
+      end: newEnd,
       amount: newAmount,
     });
 
@@ -86,8 +92,8 @@ export default function MyCalendar() {
       if (event.id === selectedEvent.id) {
         return {
           ...event,
-          start: new Date(newStartTime),
-          end: new Date(newEndTime),
+          start: newStart,
+          end: newEnd,
           amount: newAmount,
         };
       }
