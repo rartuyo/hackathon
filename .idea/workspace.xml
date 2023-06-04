@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f65ef0bc-4048-4248-bbe8-a7f695badbad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ChatBot.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-calculate-amount.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AddEventModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-suggested-time.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/f/cfb47de6ae0cae626eed46461300112ef521d977" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/f/cfb47de6ae0cae626eed46461300112ef521d977" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddEvent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddEvent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddEvent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EventInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyCalendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-activity-rate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-activity-rate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-calculate-amount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-calculate-amount.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +84,7 @@
       <workItem from="1685753205156" duration="177000" />
       <workItem from="1685753387112" duration="3731000" />
       <workItem from="1685770722194" duration="6361000" />
-      <workItem from="1685779750884" duration="10182000" />
+      <workItem from="1685779750884" duration="17905000" />
     </task>
     <servers />
   </component>

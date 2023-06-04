@@ -5,7 +5,5 @@ A
 package-lock.json,f/a/fa288d1472d29beccb489a676f68739ad365fc47
 ;
 .prettierrc,2/0/20137a9e94744624390b6748bc96df5ca1579b71
-B
-src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
 >
 next.config.js,8/1/811a6d5a2e04fadb44d8eec365f2fa8af5c4facf
