@@ -9,8 +9,6 @@ import React, { useEffect, useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import EventInfo from "./EventInfo";
 
-import events from "../events";
-import useCalculateamount from "@/hooks/use-calculate-amount";
 import AddEventModal from "@/components/AddEventModal";
 import useSuggestedTime from "@/hooks/use-suggested-time";
 import useSuggestedActivity from "@/hooks/use-suggested-activity";
@@ -41,9 +39,9 @@ export default function MyCalendar() {
   const [eventInfo, setEventInfo] = useState();
   const { calculate, amount } = useCalculateAmount();
   const [suggestedBlocks, setSuggestedBlocks] = useState();
-  const [suggestedActivty, setSuggestedActivity] = useState()
+  const [suggestedActivty, setSuggestedActivity] = useState();
   const { getSuggestions } = useSuggestedTime();
-  const {getSuggestedActivity} = useSuggestedActivity()
+  const { getSuggestedActivity } = useSuggestedActivity();
 
   const bookHandler = (eventTitle: string) => {
     if (amount && eventInfo) {
@@ -51,6 +49,7 @@ export default function MyCalendar() {
         ...eventsData,
         {
           ...eventInfo,
+          id: eventsData.length,
           title: eventTitle,
           amount: amount,
         },
@@ -73,6 +72,30 @@ export default function MyCalendar() {
     });
 
     await calculate(start, end);
+  };
+
+  const updateEventHandler = (newStartTime, newEndTime, newAmount) => {
+    setSelectedEvent({
+      ...selectedEvent,
+      start: newStartTime,
+      end: newEndTime,
+      amount: newAmount,
+    });
+
+    const updatedItems = eventsData.map((event) => {
+      if (event.id === selectedEvent.id) {
+        return {
+          ...event,
+          start: new Date(newStartTime),
+          end: new Date(newEndTime),
+          amount: newAmount,
+        };
+      }
+
+      return event;
+    });
+
+    setEventsData(updatedItems);
   };
 
   return (
@@ -106,6 +129,7 @@ export default function MyCalendar() {
             eventInfo={selectedEvent}
             suggestedBlocks={suggestedBlocks}
             suggestedActivity={suggestedActivty}
+            updateEventTime={updateEventHandler}
           />
         </div>
       )}

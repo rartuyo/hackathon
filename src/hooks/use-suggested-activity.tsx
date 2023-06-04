@@ -10,7 +10,9 @@ const openai = new OpenAIApi(configuration);
 const preText = (activity) =>
   `Give me a list of suggested activities that achieves the same purpose of the given activity but without using as much energy. For example, if I say “Do Laundry”, please return “wash clothes by hand, run into detergent with clothes on, buy new clothes”. For example, do “${activity}”. No prose, maximum 3 activities.`;
 export default function useSuggestedActivity() {
-  const [suggestedActivity, setSuggestedActivity] = useState<string | undefined>("");
+  const [suggestedActivity, setSuggestedActivity] = useState<
+    string | undefined
+  >("");
 
   const getSuggestedActivity = async (content: string) => {
     if (!content) {
@@ -23,10 +25,9 @@ export default function useSuggestedActivity() {
         messages: [{ role: "user", content: preText(content) }],
       });
 
-
       if (typeof data !== "undefined") {
-        console.log(data?.choices[0]?.message.content)
-        return data?.choices[0]?.message.content
+        console.log(data?.choices[0]?.message.content);
+        return data?.choices[0]?.message.content;
       }
     } catch (err) {
       console.log(err);
