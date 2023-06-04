@@ -16,6 +16,9 @@ export default function Home() {
     <main>
       <QueryClientProvider client={queryClient}>
         <div>
+          <div className="w-full text-center py-6 bg-green-200 font-bold">
+            Green Calendar 📆
+          </div>
           <Calendar />
         </div>
       </QueryClientProvider>
